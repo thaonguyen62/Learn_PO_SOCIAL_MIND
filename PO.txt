@@ -1,0 +1,243 @@
+====================================================
+PRODUCT MINDSET — FULL NOTES
+====================================================
+
+----------------------------------------------------
+TOPIC 1: OUTCOME OVER OUTPUT
+----------------------------------------------------
+Core shift:
+- Developer mindset: "I built the feature" = done
+- PM mindset: "Did it change anything?" = done only when impact is proven
+
+Real example:
+  Team built onboarding tutorial (2 sprints) → shipped → celebrated
+  30 days later: retention didn't move, users still churned at day 3
+  Output = tutorial built | Outcome = nothing changed
+
+How to think in outcomes:
+  Feature idea → ask: what behavior do we want to change?
+  After shipping → ask: did that behavior change?
+
+Outcome types:
+  - User outcome: completes task faster, less frustration
+  - Business outcome: retention up, revenue up, support tickets down
+  - Learning outcome: we now know X about users (also valid)
+
+Watch out for:
+  - Celebrating sprint velocity instead of user impact
+  - Measuring "features shipped per quarter" as success
+
+Key question to always ask: "So what? What changed for the user?"
+
+----------------------------------------------------
+TOPIC 2: FALL IN LOVE WITH THE PROBLEM
+----------------------------------------------------
+Why developers struggle:
+  Trained to solve immediately. PM work = stay in the problem longer.
+
+The 5 Whys in practice:
+  Problem: "Users are not completing checkout"
+  Why 1: They drop off at payment step
+  Why 2: Payment form has too many fields
+  Why 3: We ask for info we don't need
+  Why 4: Form copied from old system without review
+  Why 5: No one owned the checkout experience
+  → Real problem: ownership gap, not UI problem
+  → Solution: assign owner + audit fields (not redesign checkout)
+
+Problem framing template:
+  - Who is having the problem?
+  - What are they trying to do?
+  - What is stopping them?
+  - How do we know this is real? (evidence)
+  - How big is this problem? (how many users, how often)
+
+Rule: spend 70% of time on problem, 30% on solution
+Rule: If two PMs frame the same problem differently → they build completely different products
+
+----------------------------------------------------
+TOPIC 3: WHO IS YOUR USER (JTBD)
+----------------------------------------------------
+Persona = who the user is (demographics, traits)
+JTBD = what they're trying to accomplish in a specific moment (motivation)
+
+Why JTBD is more powerful:
+  Two completely different people can have the same job-to-be-done.
+  JTBD describes motivation, not identity.
+
+JTBD formula:
+  When [situation],
+  I want to [motivation],
+  So I can [expected outcome]
+
+Example (Grab):
+  When I'm in an unfamiliar area with my family,
+  I want to find a reliable ride immediately,
+  So I can avoid stress and look competent in front of my family
+  → Emotional outcome = what Grab really competes on, not just transport
+
+How to find real JTBDs:
+  - User interviews: ask "tell me about the last time you used X"
+  - Look for workarounds: user hacks = unmet job
+  - Switching stories: why did someone start/stop using a product?
+
+----------------------------------------------------
+TOPIC 4: THINK IN SYSTEMS, NOT FEATURES
+----------------------------------------------------
+Developer → already thinks in systems for code:
+  Change function → breaks dependency → affects service
+Apply same to product:
+  Add feature → changes user behavior → affects metric → creates support load
+
+The Iceberg model:
+  Visible:    Feature request from stakeholder
+  Below:      User behavior it tries to change
+  Deeper:     Mental model / habit behind that behavior
+  Deepest:    Market force / business pressure driving the request
+  → Never respond to just the tip of the iceberg
+
+Practical checklist before shipping any feature:
+  □ Which user segment is affected?
+  □ Which metric should move? Which might drop?
+  □ What existing flow does this change?
+  □ What does engineering need to maintain long-term?
+  □ What happens if this feature succeeds beyond expectations? (scale)
+  □ What's the rollback plan?
+
+Second-order thinking example:
+  Feature: add push notifications to increase DAU
+  First order: DAU goes up ✓
+  Second order: notification fatigue → users disable all → harder to reach them ✗
+
+----------------------------------------------------
+TOPIC 5: DATA-INFORMED, NOT DATA-DRIVEN
+----------------------------------------------------
+The trap: letting numbers make decisions. Data has no context, no emotion, no why.
+
+3 questions for any metric:
+  1. What does this number actually measure?
+  2. What does it NOT measure?
+  3. What behavior could game this metric?
+
+North Star Metric (NSM):
+  One metric that best represents the core value your product delivers.
+  Spotify   → Time spent listening
+  Airbnb    → Nights booked
+  Facebook  → DAU
+  Slack     → Messages sent per org
+
+How to find your NSM:
+  "What is the moment a user gets real value from the product?"
+  → Measure how often that moment happens
+
+Metrics hierarchy:
+  North Star Metric
+  ├── Input metrics (levers you pull)
+  │   ├── Acquisition: new users signing up
+  │   ├── Activation: users reaching "aha moment"
+  │   ├── Retention: users coming back
+  │   ├── Revenue: users paying
+  │   └── Referral: users inviting others
+  └── Counter metrics (don't break these)
+      ├── Support ticket volume
+      ├── Churn rate
+      └── Load time / error rate
+
+Note for developers: you already track error rates, latency, uptime.
+PM metrics = same discipline applied to user behavior.
+
+----------------------------------------------------
+TOPIC 6: PRIORITIZATION MINDSET
+----------------------------------------------------
+Why it's hard: everyone thinks their request is most important.
+Your job: make the hard call with incomplete information.
+
+RICE Framework:
+  Score = (Reach × Impact × Confidence%) / Effort
+
+  Reach:      How many users per month?
+  Impact:     0.25=minimal, 0.5=low, 1=medium, 2=high, 3=massive
+  Confidence: 100%=high evidence, 80%=medium, 50%=low
+  Effort:     person-weeks or sprints
+
+Example:
+  Feature A (notifications):
+    Reach=10000, Impact=2, Confidence=80%, Effort=2 weeks
+    Score = (10000 × 2 × 0.8) / 2 = 8,000
+
+  Feature B (new dashboard):
+    Reach=500, Impact=3, Confidence=50%, Effort=8 weeks
+    Score = (500 × 3 × 0.5) / 8 = 93.75
+
+  → Feature A wins, even though B sounds more exciting
+
+Opportunity Cost mindset:
+  Every YES = NO to everything else in that time slot
+  Always ask: "What are we NOT doing if we do this?"
+
+Saying no well:
+  Bad:  "We can't do that"
+  Good: "We could do that — here's what we'd deprioritize.
+         Given our current goals, I recommend we hold this for Q3.
+         Here's why and what we'd need to see to reprioritize it."
+
+MoSCoW framework:
+  Must have   — product doesn't work without it
+  Should have — important but not critical for launch
+  Could have  — nice to have, cut if needed
+  Won't have  — explicitly out of scope this cycle
+
+----------------------------------------------------
+TOPIC 7: STAKEHOLDER EMPATHY & INFLUENCE WITHOUT AUTHORITY
+----------------------------------------------------
+The PM paradox: responsible for the product, authority over nothing.
+You lead through trust, clarity, and shared goals — not title.
+
+What each stakeholder cares about:
+  Engineers   → Clarity, no surprise scope creep, respect for complexity
+                Earn trust: write precise specs, shield from chaos, explain the why
+  Designers   → User needs respected, not just business requests
+                Earn trust: champion UX decisions with data
+  Business    → Revenue, growth, risk
+                Earn trust: tie every decision to a number
+  Support/Ops → Fewer tickets, predictable releases
+                Earn trust: loop in early, give detailed release notes
+  Users       → Their actual problem solved
+                Earn trust: talk to them regularly
+
+The influence toolkit:
+  1. Shared goals     — anchor to OKRs, not your opinion
+  2. Data             — bring evidence, not feelings
+  3. Pre-alignment    — talk to stakeholders BEFORE the meeting, not during
+  4. Trade-off transparency — show you've considered all sides
+  5. Credit sharing   — spread credit widely when things go well
+
+Difficult conversation framework (SCIR):
+  Situation:      "I know you want to ship X by end of month"
+  Complication:   "We found in user research that X doesn't solve the root problem"
+  Implication:    "If we ship it, we risk wasting next quarter fixing it"
+  Recommendation: "I propose we spend 1 week validating with 5 users first"
+
+====================================================
+FRAMEWORKS TO LEARN (in order):
+====================================================
+1. JTBD (Jobs To Be Done)
+2. RICE prioritization
+3. North Star Metric
+4. 5 Whys
+5. User story mapping
+6. PRD writing
+
+====================================================
+BOOKS:
+====================================================
+- Inspired — Marty Cagan (most important, read first)
+- Continuous Discovery Habits — Teresa Torres
+- Swipe to Unlock — business/tech concepts
+
+====================================================
+DAILY PRACTICE:
+====================================================
+- Pick 1 app → answer: problem, user, metric, 1 improvement
+- Write 1 PRD per week (even for fake products)
+- Do 1 user interview per month
